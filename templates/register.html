@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %} Register {% endblock %}
+{%  block head %}
+    <script src = {% static 'jquery/jquery-3.7.1.min.js' %}></script>
+    <script src = {% static 'js/register.js' %}></script>
+{% endblock %}
+{% block main %}
+
+
+    <div style='max-width: 330px;' class="m-auto">
+        <h1>Register</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+        <div class="mb-3">
+            <label>User name</label>
+            <input type="text" name="username" class="form-control" placeholder="Username">
+        </div>
+        <div class="mb-3">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" placeholder="Email">
+        </div>
+         <div class="mb-3">
+             <label>Verification code</label>
+             <div class="input-group">
+            <input type="text" class="form-control" name="captcha" placeholder="Verification code" aria-label="Recipient's username"
+                   aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="captcha_btn">Receive code</button>
+        </div>
+         </div>
+        <div class="mb-3">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Password">
+        </div>
+
+        <div class="mb-3">
+            <button class='btn btn-primary w-100'>Register</button>
+        </div>
+    </form>
+    </div>
+
+{% endblock %}
